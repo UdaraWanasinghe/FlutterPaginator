@@ -1,3 +1,3 @@
-## [0.0.1] - Release
+## [0.0.3] - Release
 
 * A customizable paginator library written in dart.
