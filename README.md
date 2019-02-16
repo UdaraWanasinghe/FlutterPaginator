@@ -15,7 +15,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
-<img src="screenrecord.gif" height="480em"/>
+<img src="https://github.com/UdaraWanasinghe/FlutterPaginator/blob/master/screenrecord.gif" height="480em"/>
 
 ## Using
 
