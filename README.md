@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Using
 
-```
+```dart
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
