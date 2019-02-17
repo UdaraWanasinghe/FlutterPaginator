@@ -11,18 +11,12 @@ to fetch and display data from an API page by page.
 
 ```
 dependencies:
-  flutter_paginator: ^0.0.4
+  flutter_paginator: ^0.0.5
 ```
 
 ## Description
 
-```Paginator``` extends ```StatefulWidget``` has 3 constructors namely
-```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView```. 
-```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` are
-descendants of ```ListView```, ```GridView``` and ```PageView```. 
-```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` got
-all the features of their ancestors and they are need to provide additional
-functions that are essential in doing their task.
+```Paginator``` extends ```StatefulWidget``` has 3 constructors namely ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView```. ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` are descendants of ```ListView```, ```GridView``` and ```PageView```. ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` got all the features of their ancestors and they are need to provide additional functions that are essential in doing their task.
 
 ### ```PageLoadFuture```
  * Loads the page asynchronously when the page number is given.
