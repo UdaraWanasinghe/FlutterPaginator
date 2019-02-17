@@ -11,45 +11,45 @@ to fetch and display data from an API page by page.
 
 ```
 dependencies:
-  flutter_paginator: ^0.0.5
+  flutter_paginator: ^0.0.6
 ```
 
 ## Description
 
-```Paginator``` extends ```StatefulWidget``` has 3 constructors namely ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView```. ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` are descendants of ```ListView```, ```GridView``` and ```PageView```. ```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` got all the features of their ancestors and they are need to provide additional functions that are essential in doing their task.
+`Paginator` extends `StatefulWidget` has 3 constructors namely `Paginator.listView`, `Paginator.gridView` and `Paginator.pageView`. `Paginator.listView`, `Paginator.gridView` and `Paginator.pageView` are descendants of `ListView`, `GridView` and `PageView`. `Paginator.listView`, `Paginator.gridView` and `Paginator.pageView` got all the features of their ancestors and they are need to provide additional functions that are essential in doing their task.
 
-### ```PageLoadFuture```
+### `PageLoadFuture`
  * Loads the page asynchronously when the page number is given.
- * This should return an instance of a ```Future```.
+ * This should return an instance of a `Future`.
  * Called when the next page is needed to be loaded.
 
-### ```PageItemsGetter```
+### `PageItemsGetter`
  * This function should return list of page item data when page data is given.
- * This is called after successful completion of ```PageLoadFuture```.
+ * This is called after successful completion of `PageLoadFuture`.
  * The page items returned by this method is added to the list of all the
     page items.
 
-### ```ListItemBuilder```
+### `ListItemBuilder`
  * Builds list item when item data and item index are given.
- * This should return an instance of a ```Widget```.
+ * This should return an instance of a `Widget`.
 
-### ```LoadingWidgetBuilder```
+### `LoadingWidgetBuilder`
  * Builds loading widget.
- * This should return an instance of a ```Widget```.
+ * This should return an instance of a `Widget`.
 
-### ```ErrorWidgetBuilder```
+### `ErrorWidgetBuilder`
  * Builds error widget when page data and error callback are given.
- * This should return an instance of a ```Widget```.
+ * This should return an instance of a `Widget`.
 
-### ```EmptyListWidgetBuilder```
+### `EmptyListWidgetBuilder`
  * Builds empty list widget.
  * This is displayed when the total number of list items is zero.
- * This should return an instance of a ```Widget```.
+ * This should return an instance of a `Widget`.
 
-### ```TotalItemsGetter```
+### `TotalItemsGetter`
  * This should return total number of list items when page data is given.
 
-### ```PageErrorChecker```
+### `PageErrorChecker`
  * This should return true if page has error else false, when page data is given.
  
 ## Using
