@@ -1,22 +1,63 @@
 # Flutter Paginator
 
-A customizable pagination package for Flutter.
-
-## Getting Started
-
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+A customizable pagination package for Flutter. This package can be used 
+to fetch and display data from an API page by page.
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/UdaraWanasinghe/FlutterPaginator/master/screenrecord.gif" height="480em"/>
+<img src="https://raw.githubusercontent.com/UdaraWanasinghe/FlutterPaginator/master/screenrecord.gif" height="540em"/>
 
+## Installing
+
+```
+dependencies:
+  flutter_paginator: ^0.0.4
+```
+
+## Description
+
+```Paginator``` extends ```StatefulWidget``` has 3 constructors namely
+```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView```. 
+```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` are
+descendants of ```ListView```, ```GridView``` and ```PageView```. 
+```Paginator.listView```, ```Paginator.gridView``` and ```Paginator.pageView``` got
+all the features of their ancestors and they are need to provide additional
+functions that are essential in doing their task.
+
+### ```PageLoadFuture```
+ * Loads the page asynchronously when the page number is given.
+ * This should return an instance of a ```Future```.
+ * Called when the next page is needed to be loaded.
+
+### ```PageItemsGetter```
+ * This function should return list of page item data when page data is given.
+ * This is called after successful completion of ```PageLoadFuture```.
+ * The page items returned by this method is added to the list of all the
+    page items.
+
+### ```ListItemBuilder```
+ * Builds list item when item data and item index are given.
+ * This should return an instance of a ```Widget```.
+
+### ```LoadingWidgetBuilder```
+ * Builds loading widget.
+ * This should return an instance of a ```Widget```.
+
+### ```ErrorWidgetBuilder```
+ * Builds error widget when page data and error callback are given.
+ * This should return an instance of a ```Widget```.
+
+### ```EmptyListWidgetBuilder```
+ * Builds empty list widget.
+ * This is displayed when the total number of list items is zero.
+ * This should return an instance of a ```Widget```.
+
+### ```TotalItemsGetter```
+ * This should return total number of list items when page data is given.
+
+### ```PageErrorChecker```
+ * This should return true if page has error else false, when page data is given.
+ 
 ## Using
 
 ```dart

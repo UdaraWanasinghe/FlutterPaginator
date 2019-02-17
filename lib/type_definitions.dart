@@ -10,4 +10,3 @@ typedef Widget EmptyListWidgetBuilder<T>(T pageData);
 typedef int TotalItemsGetter<T>(T pageData);
 typedef int PageItemCounter<T>(T pageData);
 typedef bool PageErrorChecker<T>(T pageData);
-typedef Widget CustomWidgetBuilder<T>(List<T> pageList, Widget paginationChild);

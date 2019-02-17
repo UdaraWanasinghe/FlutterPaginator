@@ -6,36 +6,56 @@ import 'enums.dart';
 import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
 import 'type_definitions.dart';
 
-/// Data of a single page is wrapped inside an object of type [T]
+/// Paginator extends [StatefulWidget] has 3 constructors namely
+/// [Paginator.listView], [Paginator.gridView], [Paginator.pageView]
+/// [Paginator.listView], [Paginator.gridView] and [Paginator.pageView] are
+/// descendants of [ListView], [GridView] and [PageView].
+/// [Paginator.listView], [Paginator.gridView] and [Paginator.pageView] got
+/// all the features of their ancestors and they are need to provide additional
+/// properties that are essential in doing their job.
+///
+/// [pageLoadFuture]
+///  * Loads the page asynchronously when the page number is given.
+///  * This should return an instance of a [Future].
+///  * Called when the next page is needed to be loaded.
+///
+/// [pageItemsGetter]
+///  * This function should return list of page item data when page data is given.
+///  * This is called after successful completion of [pageLoadFuture].
+///  * The page items returned by this method is added to the list of all the
+///     page items.
+///
+/// [listItemBuilder]
+///  * Builds list item when item data and item index are given.
+///  * This should return an instance of a [Widget].
+///
+/// [loadingWidgetBuilder]
+///  * Builds loading widget.
+///  * This should return an instance of a [Widget].
+///
+/// [errorWidgetBuilder]
+///  * Builds error widget when page data and error callback are given.
+///  * This should return an instance of a [Widget].
+///
+/// [emptyListWidgetBuilder]
+///  * Builds empty list widget.
+///  * This is displayed when the total number of list items is zero.
+///  * This should return an instance of a [Widget].
+///
+/// [totalItemsGetter]
+///  * This should return total number of list items when page data is given.
+///
+/// [pageErrorChecker]
+///  * This should return true if page has error else false, when page data is given.
+
 class Paginator<T> extends StatefulWidget {
-  /// Loads the page asynchronously when page number is given
-  /// This should return an instance of a [Future]
   final PageLoadFuture<T> pageLoadFuture;
-
   final PageItemsGetter<T> pageItemsGetter;
-
-  /// Builds list item when pageData and item index are given
-  /// This should return an instance of a list item [Widget]
   final ListItemBuilder listItemBuilder;
-
-  /// Builds loading widget
-  /// This should return an instance of a [Widget]
   final LoadingWidgetBuilder loadingWidgetBuilder;
-
-  /// Builds error widget when page data is given
-  /// This should return an instance of a [Widget]
   final ErrorWidgetBuilder<T> errorWidgetBuilder;
-
-  /// Builds empty list widget
-  /// This is displayed when the total number of list items is zero
-  /// This should return an instance of a [Widget]
   final EmptyListWidgetBuilder<T> emptyListWidgetBuilder;
-
-  /// This should return total number of list items when page data is given
   final TotalItemsGetter<T> totalItemsGetter;
-
-  /// This should return true if page has error else false
-  /// when page data is given
   final PageErrorChecker<T> pageErrorChecker;
 
   /// common properties
