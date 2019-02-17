@@ -5,7 +5,7 @@ to fetch and display data from an API page by page.
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/UdaraWanasinghe/FlutterPaginator/master/screenrecord.gif" height="540em"/>
+<img src="https://raw.githubusercontent.com/UdaraWanasinghe/FlutterPaginator/master/screenrecord.gif" height="640em"/>
 
 ## Installing
 
