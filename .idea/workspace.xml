@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af22e279-7fd0-474b-9c46-7e110a208c55" name="Default Changelist" comment="Documentation updated.">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_paginator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_paginator.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -17,100 +18,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1784324390">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="22" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.20" value="3" />
-          <entry key="project.open.time.23" value="2" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="23" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="LICENSE" value="1" />
-          <entry key="dart" value="60" />
-          <entry key="md" value="25" />
-          <entry key="yaml" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Dart" value="60" />
-          <entry key="Markdown" value="23" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="YAML" value="13" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dart" value="6721" />
-          <entry key="md" value="476" />
-          <entry key="txt" value="37" />
-          <entry key="yaml" value="174" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Dart" value="6721" />
-          <entry key="HTML" value="1" />
-          <entry key="Markdown" value="468" />
-          <entry key="PLAIN_TEXT" value="44" />
-          <entry key="YAML" value="174" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="299">
-                <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-                <folding>
-                  <element signature="e#0#20#0" expanded="true" />
-                </folding>
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="9" selection-start-column="9" selection-end-column="9" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="820">
+              <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,9 +79,9 @@
         <option value="$PROJECT_DIR$/example/README.md" />
         <option value="$PROJECT_DIR$/lib/flutter_paginator.dart" />
         <option value="$PROJECT_DIR$/lib/enums.dart" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -185,42 +103,20 @@
         <subPane>
           <expand>
             <path>
-              <item name="flutter_paginator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_paginator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_paginator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_paginator" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_paginator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_paginator" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_paginator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_paginator" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_paginator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_paginator" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="FlutterPaginator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlutterPaginator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
-        <option name="show-excluded-files" value="false" />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="Stateful&#9;null&#9;null&#10;framew&#9;FILE&#9;file://C:/src/flutter/packages/flutter/lib/src/widgets/framework.dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -284,15 +180,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24029452" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24571112" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Resources Explorer" order="6" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32909605" />
       <window_info anchor="bottom" id="Run" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
@@ -333,66 +229,23 @@
       <window_info anchor="right" id="Assistant" order="5" weight="0.33400267" />
     </layout-to-restore>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Documentation updated." />
     <option name="LAST_COMMIT_MESSAGE" value="Documentation updated." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/data_container.dart" />
-    <entry file="file://C:/src/flutter/packages/flutter/lib/src/material/card.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1357">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/src/flutter/bin/cache/pkg/sky_engine/lib/async/stream.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/src/flutter/bin/cache/pkg/sky_engine/lib/async/stream_controller.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/src/flutter/packages/flutter/lib/src/material/card.dart" />
+    <entry file="file://C:/src/flutter/bin/cache/pkg/sky_engine/lib/async/stream.dart" />
+    <entry file="file://C:/src/flutter/bin/cache/pkg/sky_engine/lib/async/stream_controller.dart" />
     <entry file="file://$PROJECT_DIR$/flutter_paginator_example/lib/type_definitions.dart" />
     <entry file="file://$PROJECT_DIR$/flutter_paginator_example/lib/listview_paginator.dart" />
     <entry file="file://$PROJECT_DIR$/flutter_paginator_example/lib/enums.dart" />
     <entry file="file://$PROJECT_DIR$/lib/keep_alive_builders.dart" />
-    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="790" column="9" selection-start-line="790" selection-start-column="9" selection-end-line="790" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="508" column="35" selection-start-line="508" selection-start-column="35" selection-end-line="508" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/src/flutter/packages/flutter/lib/src/material/chip.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-460" />
-      </provider>
-    </entry>
-    <entry file="file://C:/src/flutter/packages/flutter/lib/material.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="31" column="23" lean-forward="true" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart" />
+    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/page_view.dart" />
+    <entry file="file://C:/src/flutter/packages/flutter/lib/src/material/chip.dart" />
+    <entry file="file://C:/src/flutter/packages/flutter/lib/material.dart" />
     <entry file="file://$PROJECT_DIR$/lib/listview_paginator.dart" />
     <entry file="file://$PROJECT_DIR$/test/flutter_paginator_test.dart">
       <provider selected="true" editor-type-id="text-editor" />
@@ -405,13 +258,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/framework.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="776" column="20" selection-start-line="776" selection-start-column="20" selection-end-line="776" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/src/flutter/packages/flutter/lib/src/widgets/framework.dart" />
     <entry file="file://$PROJECT_DIR$/lib/type_definitions.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -443,65 +290,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-3721">
-            <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-            <folding>
-              <element signature="e#0#20#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/example/README.md" />
     <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="299">
-            <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-            <folding>
-              <element signature="e#0#20#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="46">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
           <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="9" selection-start-column="9" selection-end-column="9" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="820">
+          <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

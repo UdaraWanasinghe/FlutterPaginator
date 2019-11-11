@@ -1,5 +1,7 @@
 # Flutter Paginator
 
+[![pub package](https://img.shields.io/badge/pub-v0.0.6-orange)](https://pub.dev/packages/flutter_paginator)
+
 A customizable pagination package for Flutter. This package can be used 
 to fetch and display data from an API page by page.
 
