@@ -1,2 +1,1 @@
-enum ListStatus { LOADING, ERROR, SUCCESS, EMPTY }
 enum ListType { LIST_VIEW, GRID_VIEW, PAGE_VIEW }

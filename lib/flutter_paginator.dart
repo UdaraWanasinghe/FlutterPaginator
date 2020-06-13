@@ -2,50 +2,51 @@ library flutter_paginator;
 
 import 'dart:async';
 
-import 'enums.dart';
 import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
+
+import 'enums.dart';
 import 'type_definitions.dart';
 
-/// Paginator extends [StatefulWidget] has 3 constructors namely
+/// Paginator has 3 constructors
 /// [Paginator.listView], [Paginator.gridView], [Paginator.pageView]
 /// [Paginator.listView], [Paginator.gridView] and [Paginator.pageView] are
 /// descendants of [ListView], [GridView] and [PageView].
 /// [Paginator.listView], [Paginator.gridView] and [Paginator.pageView] got
 /// all the features of their ancestors and they are need to provide additional
-/// properties that are essential in doing their job.
+/// properties that are essential in doing their task.
 ///
-/// [pageLoadFuture]
+/// [PageLoadFuture]
 ///  * Loads the page asynchronously when the page number is given.
 ///  * This should return an instance of a [Future].
 ///  * Called when the next page is needed to be loaded.
 ///
-/// [pageItemsGetter]
+/// [PageItemsGetter]
 ///  * This function should return list of page item data when page data is given.
 ///  * This is called after successful completion of [pageLoadFuture].
 ///  * The page items returned by this method is added to the list of all the
 ///     page items.
 ///
-/// [listItemBuilder]
+/// [ListItemBuilder]
 ///  * Builds list item when item data and item index are given.
 ///  * This should return an instance of a [Widget].
 ///
-/// [loadingWidgetBuilder]
+/// [LoadingWidgetBuilder]
 ///  * Builds loading widget.
 ///  * This should return an instance of a [Widget].
 ///
-/// [errorWidgetBuilder]
+/// [ErrorWidgetBuilder]
 ///  * Builds error widget when page data and error callback are given.
 ///  * This should return an instance of a [Widget].
 ///
-/// [emptyListWidgetBuilder]
+/// [EmptyListWidgetBuilder]
 ///  * Builds empty list widget.
 ///  * This is displayed when the total number of list items is zero.
 ///  * This should return an instance of a [Widget].
 ///
-/// [totalItemsGetter]
+/// [TotalItemsGetter]
 ///  * This should return total number of list items when page data is given.
 ///
-/// [pageErrorChecker]
+/// [PageErrorChecker]
 ///  * This should return true if page has error else false, when page data is given.
 
 class Paginator<T> extends StatefulWidget {
@@ -255,7 +256,7 @@ class PaginatorState<T> extends State<Paginator> {
   PageController _pageController;
 
   /// runtime variables
-  ListStatus _listStatus;
+  _ListStatus _listStatus;
   ListType _listType;
   List _listItems;
   int _currentPage;
@@ -300,26 +301,25 @@ class PaginatorState<T> extends State<Paginator> {
   }
 
   void _initialize() {
-    _listStatus = ListStatus.LOADING;
+    _listStatus = _ListStatus.LOADING;
     _listItems = List();
     _currentPage = 0;
     _nTotalItems = 0;
-    _firstPageData = null;
   }
 
   @override
   Widget build(BuildContext context) {
     switch (_listStatus) {
-      case ListStatus.SUCCESS:
+      case _ListStatus.SUCCESS:
         return _buildPaginatorWidget();
 
-      case ListStatus.LOADING:
+      case _ListStatus.LOADING:
         return Center(child: _loadingWidgetBuilder());
 
-      case ListStatus.ERROR:
+      case _ListStatus.ERROR:
         return Center(child: _errorWidgetBuilder(_firstPageData, _onError));
 
-      case ListStatus.EMPTY:
+      case _ListStatus.EMPTY:
       default:
         return _emptyListWidgetBuilder(_firstPageData);
     }
@@ -389,10 +389,6 @@ class PaginatorState<T> extends State<Paginator> {
         future: _pageLoadFuture(_currentPage + 1),
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
           switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-            case ConnectionState.active:
-              return _loadingWidgetBuilder();
             case ConnectionState.done:
               if (_pageErrorChecker(snapshot.data)) {
                 return _errorWidgetBuilder(snapshot.data, _onError);
@@ -402,6 +398,8 @@ class PaginatorState<T> extends State<Paginator> {
               Future.microtask(() {
                 setState(() {});
               });
+              return _loadingWidgetBuilder();
+            default:
               return _loadingWidgetBuilder();
           }
         },
@@ -420,7 +418,7 @@ class PaginatorState<T> extends State<Paginator> {
     if (_listItems.length == 0) {
       setState(
         () {
-          this._listStatus = ListStatus.LOADING;
+          this._listStatus = _ListStatus.LOADING;
         },
       );
       _initialFutureCall();
@@ -502,19 +500,21 @@ class PaginatorState<T> extends State<Paginator> {
       _nTotalItems = _totalItemsGetter(pageData);
       if (_pageErrorChecker(pageData)) {
         setState(() {
-          _listStatus = ListStatus.ERROR;
+          _listStatus = _ListStatus.ERROR;
         });
       } else if (_nTotalItems == 0) {
         setState(() {
-          _listStatus = ListStatus.EMPTY;
+          _listStatus = _ListStatus.EMPTY;
         });
       } else {
         _currentPage++;
         _listItems.addAll(_pageItemsGetter(pageData));
         setState(() {
-          _listStatus = ListStatus.SUCCESS;
+          _listStatus = _ListStatus.SUCCESS;
         });
       }
     });
   }
 }
+
+enum _ListStatus { LOADING, ERROR, SUCCESS, EMPTY }
