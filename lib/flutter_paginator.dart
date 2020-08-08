@@ -493,6 +493,28 @@ class PaginatorState<T> extends State<Paginator> {
     setState(() {});
   }
 
+  /// Returns a future which resolves when the list has finished loading
+  ///
+  /// For use in a RefreshIndicator:
+  /// ```dart
+  /// onRefresh: () {
+  ///   paginatorGlobalKey.currentState.changeState(pageLoadFuture: _pageLoadFuture, resetState: true);
+  ///   return paginatorGlobalKey.currentState.pageLoadFuture();
+  /// }
+  /// ```
+  Future<void> pageLoadFuture() async {
+    Completer completer = new Completer();
+    check() {
+      if (_listStatus != _ListStatus.LOADING) {
+        completer.complete();
+      } else {
+        new Timer(Duration.zero, check);
+      }
+    }
+    check();
+    return completer.future;
+  }
+
   void _initialFutureCall() {
     Future<T> future = _pageLoadFuture(1);
     future.then((T pageData) {
