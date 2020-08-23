@@ -396,7 +396,7 @@ class PaginatorState<T> extends State<Paginator> {
               _listItems.addAll(_pageItemsGetter(snapshot.data));
               _currentPage++;
               Future.microtask(() {
-                setState(() {});
+                if (mounted) setState(() {});
               });
               return _loadingWidgetBuilder();
             default:
@@ -415,15 +415,13 @@ class PaginatorState<T> extends State<Paginator> {
   }
 
   void _onError() {
+    final mounted = this.mounted;
     if (_listItems.length == 0) {
-      setState(
-        () {
-          this._listStatus = _ListStatus.LOADING;
-        },
-      );
+      this._listStatus = _ListStatus.LOADING;
+      if (mounted) setState(() {});
       _initialFutureCall();
     } else {
-      setState(() {});
+      if (mounted) setState(() {});
     }
   }
 
@@ -498,20 +496,33 @@ class PaginatorState<T> extends State<Paginator> {
     future.then((T pageData) {
       _firstPageData = pageData;
       _nTotalItems = _totalItemsGetter(pageData);
+      final mounted = this.mounted;
       if (_pageErrorChecker(pageData)) {
-        setState(() {
+        if (mounted) {
+          setState(() {
+            _listStatus = _ListStatus.ERROR;
+          });
+        } else {
           _listStatus = _ListStatus.ERROR;
-        });
+        }
       } else if (_nTotalItems == 0) {
-        setState(() {
+        if (mounted) {
+          setState(() {
+            _listStatus = _ListStatus.EMPTY;
+          });
+        } else {
           _listStatus = _ListStatus.EMPTY;
-        });
+        }
       } else {
         _currentPage++;
         _listItems.addAll(_pageItemsGetter(pageData));
-        setState(() {
+        if (mounted) {
+          setState(() {
+            _listStatus = _ListStatus.SUCCESS;
+          });
+        } else {
           _listStatus = _ListStatus.SUCCESS;
-        });
+        }
       }
     });
   }
