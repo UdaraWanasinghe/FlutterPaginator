@@ -76,8 +76,11 @@ class Paginator<T> extends StatefulWidget {
   final bool addRepaintBoundaries;
   final bool addSemanticIndexes;
 
-  /// properties - list view only
+  /// properties - list view, separated list view
   final double itemExtent;
+
+  /// properties - separated list view only
+  final IndexedWidgetBuilder listSeparatorBuilder;
 
   /// properties - grid view only
   final SliverGridDelegate gridDelegate;
@@ -114,6 +117,39 @@ class Paginator<T> extends StatefulWidget {
     this.addSemanticIndexes = true,
     this.itemExtent,
   })  : this.listType = ListType.LIST_VIEW,
+        this.listSeparatorBuilder = null,
+        this.onPageChanged = null,
+        this.pageSnapping = true,
+        this.pageController = null,
+        this.gridDelegate = null,
+        super(key: key);
+
+  const Paginator.separatedListView({
+    Key key,
+    @required this.pageLoadFuture,
+    @required this.pageItemsGetter,
+    @required this.listItemBuilder,
+    @required this.listSeparatorBuilder,
+    @required this.loadingWidgetBuilder,
+    @required this.errorWidgetBuilder,
+    @required this.emptyListWidgetBuilder,
+    @required this.totalItemsGetter,
+    @required this.pageErrorChecker,
+    this.scrollViewKey,
+    this.scrollDirection = Axis.vertical,
+    this.reverse = false,
+    this.scrollPhysics,
+    this.padding,
+    this.shrinkWrap = false,
+    this.scrollController,
+    this.primary,
+    this.semanticChildCount,
+    this.cacheExtent,
+    this.addAutomaticKeepAlives = true,
+    this.addRepaintBoundaries = true,
+    this.addSemanticIndexes = true,
+    this.itemExtent,
+  })  : this.listType = ListType.SEPARATED_LIST_VIEW,
         this.onPageChanged = null,
         this.pageSnapping = true,
         this.pageController = null,
@@ -145,6 +181,7 @@ class Paginator<T> extends StatefulWidget {
     this.addRepaintBoundaries = true,
     this.addSemanticIndexes = true,
   })  : this.listType = ListType.GRID_VIEW,
+        this.listSeparatorBuilder = null,
         this.itemExtent = null,
         this.onPageChanged = null,
         this.pageSnapping = true,
@@ -169,6 +206,7 @@ class Paginator<T> extends StatefulWidget {
     this.pageSnapping = true,
     this.pageController,
   })  : this.listType = ListType.PAGE_VIEW,
+        this.listSeparatorBuilder = null,
         this.padding = null,
         this.shrinkWrap = false,
         this.scrollController = null,
@@ -188,6 +226,7 @@ class Paginator<T> extends StatefulWidget {
       this.pageLoadFuture,
       this.pageItemsGetter,
       this.listItemBuilder,
+      this.listSeparatorBuilder,
       this.loadingWidgetBuilder,
       this.errorWidgetBuilder,
       this.emptyListWidgetBuilder,
@@ -244,8 +283,11 @@ class PaginatorState<T> extends State<Paginator> {
   bool _addRepaintBoundaries;
   bool _addSemanticIndexes;
 
-  /// properties - list view only
+  /// properties - list view, separated list view
   double _itemExtent;
+
+  /// properties - separated list view only
+  IndexedWidgetBuilder _listSeparatorBuilder;
 
   /// properties - grid view only
   SliverGridDelegate _gridDelegate;
@@ -267,6 +309,7 @@ class PaginatorState<T> extends State<Paginator> {
     this._pageLoadFuture,
     this._pageItemsGetter,
     this._listItemBuilder,
+    this._listSeparatorBuilder,
     this._loadingWidgetBuilder,
     this._errorWidgetBuilder,
     this._emptyListWidgetBuilder,
@@ -342,6 +385,24 @@ class PaginatorState<T> extends State<Paginator> {
           semanticChildCount: _semanticChildCount,
           cacheExtent: _cacheExtent,
           itemExtent: _itemExtent,
+          addAutomaticKeepAlives: _addAutomaticKeepAlives,
+          addRepaintBoundaries: _addRepaintBoundaries,
+          addSemanticIndexes: _addSemanticIndexes,
+        );
+      case ListType.SEPARATED_LIST_VIEW:
+        return ListView.separated(
+          key: _scrollViewKey,
+          padding: _padding,
+          physics: _scrollPhysics,
+          scrollDirection: _scrollDirection,
+          shrinkWrap: _shrinkWrap,
+          itemCount: _getItemCount(),
+          itemBuilder: _itemBuilder,
+          separatorBuilder: _listSeparatorBuilder,
+          controller: _scrollController,
+          reverse: _reverse,
+          primary: _primary,
+          cacheExtent: _cacheExtent,
           addAutomaticKeepAlives: _addAutomaticKeepAlives,
           addRepaintBoundaries: _addRepaintBoundaries,
           addSemanticIndexes: _addSemanticIndexes,
@@ -431,6 +492,7 @@ class PaginatorState<T> extends State<Paginator> {
     PageLoadFuture<T> pageLoadFuture,
     PageItemsGetter<T> pageItemsGetter,
     ListItemBuilder listItemBuilder,
+    IndexedWidgetBuilder listSeparatorBuilder,
     LoadingWidgetBuilder loadingWidgetBuilder,
     ErrorWidgetBuilder<T> errorWidgetBuilder,
     EmptyListWidgetBuilder<T> emptyListWidgetMaker,
@@ -460,6 +522,7 @@ class PaginatorState<T> extends State<Paginator> {
     _pageLoadFuture = pageLoadFuture ?? _pageLoadFuture;
     _pageItemsGetter = pageItemsGetter ?? _pageItemsGetter;
     _listItemBuilder = listItemBuilder ?? _listItemBuilder;
+    _listSeparatorBuilder = listSeparatorBuilder ?? _listSeparatorBuilder;
     _loadingWidgetBuilder = loadingWidgetBuilder ?? _loadingWidgetBuilder;
     _errorWidgetBuilder = errorWidgetBuilder ?? _errorWidgetBuilder;
     _emptyListWidgetBuilder = emptyListWidgetMaker ?? _emptyListWidgetBuilder;
