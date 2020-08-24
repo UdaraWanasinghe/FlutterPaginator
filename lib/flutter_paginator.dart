@@ -49,15 +49,15 @@ import 'type_definitions.dart';
 /// [PageErrorChecker]
 ///  * This should return true if page has error else false, when page data is given.
 
-class Paginator<T> extends StatefulWidget {
-  final PageLoadFuture<T> pageLoadFuture;
-  final PageItemsGetter<T> pageItemsGetter;
-  final ListItemBuilder listItemBuilder;
+class Paginator<TpageData, TitemData> extends StatefulWidget {
+  final PageLoadFuture<TpageData> pageLoadFuture;
+  final PageItemsGetter<TpageData, TitemData> pageItemsGetter;
+  final ListItemBuilder<TitemData> listItemBuilder;
   final LoadingWidgetBuilder loadingWidgetBuilder;
-  final ErrorWidgetBuilder<T> errorWidgetBuilder;
-  final EmptyListWidgetBuilder<T> emptyListWidgetBuilder;
-  final TotalItemsGetter<T> totalItemsGetter;
-  final PageErrorChecker<T> pageErrorChecker;
+  final ErrorWidgetBuilder<TpageData> errorWidgetBuilder;
+  final EmptyListWidgetBuilder<TpageData> emptyListWidgetBuilder;
+  final TotalItemsGetter<TpageData> totalItemsGetter;
+  final PageErrorChecker<TpageData> pageErrorChecker;
 
   /// common properties
   final Key scrollViewKey;
@@ -184,7 +184,7 @@ class Paginator<T> extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return PaginatorState<T>(
+    return PaginatorState<TpageData, TitemData>(
       this.pageLoadFuture,
       this.pageItemsGetter,
       this.listItemBuilder,
@@ -216,16 +216,16 @@ class Paginator<T> extends StatefulWidget {
   }
 }
 
-class PaginatorState<T> extends State<Paginator> {
+class PaginatorState<TpageData, TitemData> extends State<Paginator> {
   /// essential
-  PageLoadFuture<T> _pageLoadFuture;
-  PageItemsGetter<T> _pageItemsGetter;
-  ListItemBuilder _listItemBuilder;
+  PageLoadFuture<TpageData> _pageLoadFuture;
+  PageItemsGetter<TpageData, TitemData> _pageItemsGetter;
+  ListItemBuilder<TitemData> _listItemBuilder;
   LoadingWidgetBuilder _loadingWidgetBuilder;
-  ErrorWidgetBuilder<T> _errorWidgetBuilder;
-  EmptyListWidgetBuilder<T> _emptyListWidgetBuilder;
-  TotalItemsGetter<T> _totalItemsGetter;
-  PageErrorChecker<T> _pageErrorChecker;
+  ErrorWidgetBuilder<TpageData> _errorWidgetBuilder;
+  EmptyListWidgetBuilder<TpageData> _emptyListWidgetBuilder;
+  TotalItemsGetter<TpageData> _totalItemsGetter;
+  PageErrorChecker<TpageData> _pageErrorChecker;
 
   /// common properties
   Key _scrollViewKey;
@@ -261,7 +261,7 @@ class PaginatorState<T> extends State<Paginator> {
   List _listItems;
   int _currentPage;
   int _nTotalItems;
-  T _firstPageData;
+  TpageData _firstPageData;
 
   PaginatorState(
     this._pageLoadFuture,
@@ -387,7 +387,7 @@ class PaginatorState<T> extends State<Paginator> {
     } else {
       return FutureBuilder(
         future: _pageLoadFuture(_currentPage + 1),
-        builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<TpageData> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
               if (_pageErrorChecker(snapshot.data)) {
@@ -428,14 +428,14 @@ class PaginatorState<T> extends State<Paginator> {
   }
 
   void changeState({
-    PageLoadFuture<T> pageLoadFuture,
-    PageItemsGetter<T> pageItemsGetter,
+    PageLoadFuture<TpageData> pageLoadFuture,
+    PageItemsGetter<TpageData, TitemData> pageItemsGetter,
     ListItemBuilder listItemBuilder,
     LoadingWidgetBuilder loadingWidgetBuilder,
-    ErrorWidgetBuilder<T> errorWidgetBuilder,
-    EmptyListWidgetBuilder<T> emptyListWidgetMaker,
-    TotalItemsGetter<T> totalItemsGetter,
-    PageErrorChecker<T> pageErrorChecker,
+    ErrorWidgetBuilder<TpageData> errorWidgetBuilder,
+    EmptyListWidgetBuilder<TpageData> emptyListWidgetMaker,
+    TotalItemsGetter<TpageData> totalItemsGetter,
+    PageErrorChecker<TpageData> pageErrorChecker,
     Key scrollViewKey,
     ScrollPhysics scrollPhysics,
     Axis scrollDirection,
@@ -494,8 +494,8 @@ class PaginatorState<T> extends State<Paginator> {
   }
 
   void _initialFutureCall() {
-    Future<T> future = _pageLoadFuture(1);
-    future.then((T pageData) {
+    Future<TpageData> future = _pageLoadFuture(1);
+    future.then((TpageData pageData) {
       _firstPageData = pageData;
       _nTotalItems = _totalItemsGetter(pageData);
       if (_pageErrorChecker(pageData)) {
