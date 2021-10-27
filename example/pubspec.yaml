@@ -15,7 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_paginator:
+  flutter_paginator_ns:
     path: ../
 
   http: ^0.13.4

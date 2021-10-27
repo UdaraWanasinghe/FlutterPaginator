@@ -1,4 +1,4 @@
-library flutter_paginator;
+library flutter_paginator_ns;
 
 import 'dart:async';
 
