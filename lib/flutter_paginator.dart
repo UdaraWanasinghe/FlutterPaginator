@@ -60,45 +60,45 @@ class Paginator<T> extends StatefulWidget {
   final PageErrorChecker<T> pageErrorChecker;
 
   /// common properties
-  final Key scrollViewKey;
-  final ScrollPhysics scrollPhysics;
+  final Key? scrollViewKey;
+  final ScrollPhysics? scrollPhysics;
   final Axis scrollDirection;
   final bool reverse;
 
   /// properties - list view, grid view
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
   final bool shrinkWrap;
-  final ScrollController scrollController;
-  final bool primary;
-  final int semanticChildCount;
-  final double cacheExtent;
+  final ScrollController? scrollController;
+  final bool? primary;
+  final int? semanticChildCount;
+  final double? cacheExtent;
   final bool addAutomaticKeepAlives;
   final bool addRepaintBoundaries;
   final bool addSemanticIndexes;
 
   /// properties - list view only
-  final double itemExtent;
+  final double? itemExtent;
 
   /// properties - grid view only
-  final SliverGridDelegate gridDelegate;
+  final SliverGridDelegate? gridDelegate;
 
   /// properties - page view only
-  final ValueChanged<int> onPageChanged;
+  final ValueChanged<int>? onPageChanged;
   final bool pageSnapping;
-  final PageController pageController;
+  final PageController? pageController;
 
   final ListType listType;
 
   const Paginator.listView({
-    Key key,
-    @required this.pageLoadFuture,
-    @required this.pageItemsGetter,
-    @required this.listItemBuilder,
-    @required this.loadingWidgetBuilder,
-    @required this.errorWidgetBuilder,
-    @required this.emptyListWidgetBuilder,
-    @required this.totalItemsGetter,
-    @required this.pageErrorChecker,
+    Key? key,
+    required this.pageLoadFuture,
+    required this.pageItemsGetter,
+    required this.listItemBuilder,
+    required this.loadingWidgetBuilder,
+    required this.errorWidgetBuilder,
+    required this.emptyListWidgetBuilder,
+    required this.totalItemsGetter,
+    required this.pageErrorChecker,
     this.scrollViewKey,
     this.scrollDirection = Axis.vertical,
     this.reverse = false,
@@ -121,16 +121,16 @@ class Paginator<T> extends StatefulWidget {
         super(key: key);
 
   const Paginator.gridView({
-    Key key,
-    @required this.pageLoadFuture,
-    @required this.pageItemsGetter,
-    @required this.listItemBuilder,
-    @required this.loadingWidgetBuilder,
-    @required this.errorWidgetBuilder,
-    @required this.emptyListWidgetBuilder,
-    @required this.totalItemsGetter,
-    @required this.pageErrorChecker,
-    @required this.gridDelegate,
+    Key? key,
+    required this.pageLoadFuture,
+    required this.pageItemsGetter,
+    required this.listItemBuilder,
+    required this.loadingWidgetBuilder,
+    required this.errorWidgetBuilder,
+    required this.emptyListWidgetBuilder,
+    required this.totalItemsGetter,
+    required this.pageErrorChecker,
+    required this.gridDelegate,
     this.scrollViewKey,
     this.scrollDirection = Axis.vertical,
     this.reverse = false,
@@ -152,15 +152,15 @@ class Paginator<T> extends StatefulWidget {
         super(key: key);
 
   const Paginator.pageView({
-    Key key,
-    @required this.pageLoadFuture,
-    @required this.pageItemsGetter,
-    @required this.listItemBuilder,
-    @required this.loadingWidgetBuilder,
-    @required this.errorWidgetBuilder,
-    @required this.emptyListWidgetBuilder,
-    @required this.totalItemsGetter,
-    @required this.pageErrorChecker,
+    Key? key,
+    required this.pageLoadFuture,
+    required this.pageItemsGetter,
+    required this.listItemBuilder,
+    required this.loadingWidgetBuilder,
+    required this.errorWidgetBuilder,
+    required this.emptyListWidgetBuilder,
+    required this.totalItemsGetter,
+    required this.pageErrorChecker,
     this.scrollViewKey,
     this.scrollDirection = Axis.horizontal,
     this.reverse = false,
@@ -228,40 +228,40 @@ class PaginatorState<T> extends State<Paginator> {
   PageErrorChecker<T> _pageErrorChecker;
 
   /// common properties
-  Key _scrollViewKey;
-  ScrollPhysics _scrollPhysics;
+  Key? _scrollViewKey;
+  ScrollPhysics? _scrollPhysics;
   Axis _scrollDirection;
   bool _reverse;
 
   /// properties - list view, grid view
-  EdgeInsets _padding;
+  EdgeInsets? _padding;
   bool _shrinkWrap;
-  ScrollController _scrollController;
-  bool _primary;
-  int _semanticChildCount;
-  double _cacheExtent;
+  ScrollController? _scrollController;
+  bool? _primary;
+  int? _semanticChildCount;
+  double? _cacheExtent;
   bool _addAutomaticKeepAlives;
   bool _addRepaintBoundaries;
   bool _addSemanticIndexes;
 
   /// properties - list view only
-  double _itemExtent;
+  double? _itemExtent;
 
   /// properties - grid view only
-  SliverGridDelegate _gridDelegate;
+  SliverGridDelegate? _gridDelegate;
 
   /// properties - page view only
-  ValueChanged<int> _onPageChanged;
+  ValueChanged<int>? _onPageChanged;
   bool _pageSnapping;
-  PageController _pageController;
+  PageController? _pageController;
 
   /// runtime variables
-  _ListStatus _listStatus;
+  late _ListStatus _listStatus;
   ListType _listType;
-  List _listItems;
-  int _currentPage;
-  int _nTotalItems;
-  T _firstPageData;
+  late List _listItems;
+  late int _currentPage;
+  late int _nTotalItems;
+  late T _firstPageData;
 
   PaginatorState(
     this._pageLoadFuture,
@@ -302,7 +302,7 @@ class PaginatorState<T> extends State<Paginator> {
 
   void _initialize() {
     _listStatus = _ListStatus.LOADING;
-    _listItems = List();
+    _listItems = [];
     _currentPage = 0;
     _nTotalItems = 0;
   }
@@ -349,7 +349,7 @@ class PaginatorState<T> extends State<Paginator> {
       case ListType.GRID_VIEW:
         return GridView.builder(
           key: _scrollViewKey,
-          gridDelegate: _gridDelegate,
+          gridDelegate: _gridDelegate!,
           padding: _padding,
           physics: _scrollPhysics,
           scrollDirection: _scrollDirection,
@@ -390,10 +390,10 @@ class PaginatorState<T> extends State<Paginator> {
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              if (_pageErrorChecker(snapshot.data)) {
-                return _errorWidgetBuilder(snapshot.data, _onError);
+              if (_pageErrorChecker(snapshot.data!)) {
+                return _errorWidgetBuilder(snapshot.data!, _onError);
               }
-              _listItems.addAll(_pageItemsGetter(snapshot.data));
+              _listItems.addAll(_pageItemsGetter(snapshot.data!));
               _currentPage++;
               Future.microtask(() {
                 setState(() {});
@@ -407,7 +407,7 @@ class PaginatorState<T> extends State<Paginator> {
     }
   }
 
-  int _getItemCount() {
+  int? _getItemCount() {
     if (_nTotalItems > _listItems.length) {
       return _listItems.length + 1;
     }
@@ -428,33 +428,33 @@ class PaginatorState<T> extends State<Paginator> {
   }
 
   void changeState({
-    PageLoadFuture<T> pageLoadFuture,
-    PageItemsGetter<T> pageItemsGetter,
-    ListItemBuilder listItemBuilder,
-    LoadingWidgetBuilder loadingWidgetBuilder,
-    ErrorWidgetBuilder<T> errorWidgetBuilder,
-    EmptyListWidgetBuilder<T> emptyListWidgetMaker,
-    TotalItemsGetter<T> totalItemsGetter,
-    PageErrorChecker<T> pageErrorChecker,
-    Key scrollViewKey,
-    ScrollPhysics scrollPhysics,
-    Axis scrollDirection,
-    bool reverse,
-    EdgeInsets padding,
-    bool shrinkWrap,
-    ScrollController scrollController,
-    bool primary,
-    int semanticChildCount,
-    double cacheExtent,
-    bool addAutomaticKeepAlives,
-    bool addRepaintBoundaries,
-    bool addSemanticIndexes,
-    double itemExtent,
-    SliverGridDelegate gridDelegate,
-    ValueChanged<int> onPageChanged,
-    bool pageSnapping,
-    PageController pageController,
-    ListType listType,
+    PageLoadFuture<T>? pageLoadFuture,
+    PageItemsGetter<T?>? pageItemsGetter,
+    ListItemBuilder? listItemBuilder,
+    LoadingWidgetBuilder? loadingWidgetBuilder,
+    ErrorWidgetBuilder<T?>? errorWidgetBuilder,
+    EmptyListWidgetBuilder<T?>? emptyListWidgetMaker,
+    TotalItemsGetter<T>? totalItemsGetter,
+    PageErrorChecker<T?>? pageErrorChecker,
+    Key? scrollViewKey,
+    ScrollPhysics? scrollPhysics,
+    Axis? scrollDirection,
+    bool? reverse,
+    EdgeInsets? padding,
+    bool? shrinkWrap,
+    ScrollController? scrollController,
+    bool? primary,
+    int? semanticChildCount,
+    double? cacheExtent,
+    bool? addAutomaticKeepAlives,
+    bool? addRepaintBoundaries,
+    bool? addSemanticIndexes,
+    double? itemExtent,
+    SliverGridDelegate? gridDelegate,
+    ValueChanged<int>? onPageChanged,
+    bool? pageSnapping,
+    PageController? pageController,
+    ListType? listType,
     bool resetState = false,
   }) {
     _pageLoadFuture = pageLoadFuture ?? _pageLoadFuture;

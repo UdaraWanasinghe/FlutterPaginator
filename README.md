@@ -1,9 +1,14 @@
 # Flutter Paginator
 
-[![pub package](https://img.shields.io/badge/pub-v0.0.6-orange)](https://pub.dev/packages/flutter_paginator)
+[![pub package](https://img.shields.io/badge/pub-v2.0.0-orange)](https://pub.dev/packages/flutter_paginator)
 
 A customizable pagination package for Flutter. This package can be used 
 to fetch and display data from an API page by page.
+
+## NULL-SAFETY SUPPORT!!!
+This package has been migrated to `null-safety`
+[Original Package](https://pub.dev/packages/flutter_paginator)
+
 
 ## Screenshots
 
@@ -13,7 +18,7 @@ to fetch and display data from an API page by page.
 
 ```
 dependencies:
-  flutter_paginator: ^0.0.6
+  flutter_paginator: ^2.0.0
 ```
 
 ## Description

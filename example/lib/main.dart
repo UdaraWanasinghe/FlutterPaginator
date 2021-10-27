@@ -28,7 +28,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomeState extends State<HomePage> {
-  GlobalKey<PaginatorState> paginatorGlobalKey = GlobalKey();
+  final GlobalKey<PaginatorState> paginatorGlobalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -39,25 +39,22 @@ class HomeState extends State<HomePage> {
           IconButton(
             icon: Icon(Icons.format_list_bulleted),
             onPressed: () {
-              paginatorGlobalKey.currentState
-                  .changeState(listType: ListType.LIST_VIEW);
+              paginatorGlobalKey.currentState!.changeState(listType: ListType.LIST_VIEW);
             },
           ),
           IconButton(
             icon: Icon(Icons.grid_on),
             onPressed: () {
-              paginatorGlobalKey.currentState.changeState(
+              paginatorGlobalKey.currentState!.changeState(
                 listType: ListType.GRID_VIEW,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               );
             },
           ),
           IconButton(
             icon: Icon(Icons.library_books),
             onPressed: () {
-              paginatorGlobalKey.currentState
-                  .changeState(listType: ListType.PAGE_VIEW);
+              paginatorGlobalKey.currentState!.changeState(listType: ListType.PAGE_VIEW);
             },
           ),
         ],
@@ -76,8 +73,7 @@ class HomeState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          paginatorGlobalKey.currentState.changeState(
-              pageLoadFuture: sendCountriesDataRequest, resetState: true);
+          paginatorGlobalKey.currentState!.changeState(pageLoadFuture: sendCountriesDataRequest, resetState: true);
         },
         child: Icon(Icons.refresh),
       ),
@@ -86,14 +82,12 @@ class HomeState extends State<HomePage> {
 
   Future<CountriesData> sendCountriesDataRequest(int page) async {
     try {
-      String url = Uri.encodeFull(
-          'http://api.worldbank.org/v2/country?page=$page&format=json');
+      Uri url = Uri.parse('http://api.worldbank.org/v2/country?page=$page&format=json');
       http.Response response = await http.get(url);
       return CountriesData.fromResponse(response);
     } catch (e) {
       if (e is IOException) {
-        return CountriesData.withError(
-            'Please check your internet connection.');
+        return CountriesData.withError('Please check your internet connection.');
       } else {
         print(e.toString());
         return CountriesData.withError('Something went wrong.');
@@ -132,7 +126,7 @@ class HomeState extends State<HomePage> {
           padding: const EdgeInsets.all(16.0),
           child: Text(countriesData.errorMessage),
         ),
-        FlatButton(
+        ElevatedButton(
           onPressed: retryListener,
           child: Text('Retry'),
         )
@@ -156,11 +150,11 @@ class HomeState extends State<HomePage> {
 }
 
 class CountriesData {
-  List<dynamic> countries;
-  int statusCode;
-  String errorMessage;
-  int total;
-  int nItems;
+  List<dynamic> countries = <dynamic>[];
+  late int statusCode;
+  String errorMessage = '';
+  int total = 0;
+  int nItems = 0;
 
   CountriesData.fromResponse(http.Response response) {
     this.statusCode = response.statusCode;
