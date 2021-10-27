@@ -1,19 +1,26 @@
 # Flutter Paginator
 
-[![pub package](https://img.shields.io/badge/pub-v0.0.6-orange)](https://pub.dev/packages/flutter_paginator)
+[![pub package](https://img.shields.io/badge/pub-v2.0.0-orange)](https://pub.dev/packages/flutter_paginator_ns)
 
 A customizable pagination package for Flutter. This package can be used 
 to fetch and display data from an API page by page.
 
+## NULL-SAFETY SUPPORT!!!
+This package has been migrated to `null-safety`
+- Warning - This package might be removed if the changes gets approved on the original package.
+
+[Original Package](https://pub.dev/packages/flutter_paginator)
+
+
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/UdaraWanasinghe/FlutterPaginator/master/screenrecord.gif" height="640em"/>
+<img src="https://raw.githubusercontent.com/bernardoveras/FlutterPaginator/master/screenrecord.gif" height="640em"/>
 
 ## Installing
 
 ```
 dependencies:
-  flutter_paginator: ^0.0.6
+  flutter_paginator_ns: ^2.0.0
 ```
 
 ## Description
@@ -64,8 +71,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_paginator/flutter_paginator.dart';
-import 'package:flutter_paginator/enums.dart';
+import 'package:flutter_paginator_ns/flutter_paginator.dart';
+import 'package:flutter_paginator_ns/enums.dart';
 
 void main() => runApp(MyApp());
 

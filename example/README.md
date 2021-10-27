@@ -12,8 +12,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_paginator/flutter_paginator.dart';
-import 'package:flutter_paginator/enums.dart';
+import 'package:flutter_paginator_ns/flutter_paginator.dart';
+import 'package:flutter_paginator_ns/enums.dart';
 
 void main() => runApp(MyApp());
 
